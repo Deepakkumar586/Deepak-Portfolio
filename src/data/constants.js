@@ -1,4 +1,4 @@
-import TalentHive from "../images/TalentHive.png";
+// import TalentHive from "../images/TalentHive.png";
 
 export const Bio = {
   name: "Deepak Kumar",
@@ -338,7 +338,7 @@ export const projects = [
       "React Js",
       "Shadcn UI",
       "React Redux",
-      "Tailwind CSS",
+      // "Tailwind CSS",
       "Javascript",
       "Node js",
       "Mongo DB",

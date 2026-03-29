@@ -50,29 +50,29 @@ const Desc = styled.div`
   }
 `;
 
-const Tabs = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
-`;
+// const Tabs = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   gap: 20px;
+//   margin-bottom: 30px;
+// `;
 
-const TabButton = styled.button`
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  background-color: ${({ active, theme }) =>
-    active ? theme.primary : theme.card};
-  color: ${({ active, theme }) => (active ? "#fff" : theme.text_secondary)};
-  font-weight: 600;
-  transition: 0.3s ease;
+// const TabButton = styled.button`
+//   padding: 10px 20px;
+//   border-radius: 20px;
+//   border: none;
+//   cursor: pointer;
+//   background-color: ${({ active, theme }) =>
+//     active ? theme.primary : theme.card};
+//   color: ${({ active, theme }) => (active ? "#fff" : theme.text_secondary)};
+//   font-weight: 600;
+//   transition: 0.3s ease;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.primary};
-    color: #fff;
-  }
-`;
+//   &:hover {
+//     background-color: ${({ theme }) => theme.primary};
+//     color: #fff;
+//   }
+// `;
 
 const CardContainer = styled.div`
   display: flex;
