@@ -416,8 +416,8 @@ const Hero = () => {
           <HeroInnerContainer>
             <LeftContent>
               <motion.div {...headTextAnimation}>
-               
-                
+
+
                 <Title
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -425,13 +425,13 @@ const Hero = () => {
                 >
                   Hi, I'm <span className="purple-text">Deepak Kumar</span>
                 </Title>
-                
+
                 <SubTitle
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  
+
                 </SubTitle>
               </motion.div>
 
@@ -480,71 +480,89 @@ const Hero = () => {
                   <CodeLine>
                     <LineNumber>1</LineNumber>
                     <CodeText>
-                      <span className="keyword">import</span> {'{'} useState, useEffect {'}'} <span className="keyword">from</span> <span className="string">'react'</span>;
+                      <span className="keyword">import</span> {'{'} useState {'}'} <span className="keyword">from</span> <span className="string">'react'</span>;
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>2</LineNumber>
                     <CodeText>
                       <span className="keyword">const</span> <span className="function">Developer</span> = () =&gt; {'{'}
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>3</LineNumber>
                     <CodeText>
-                      &nbsp;&nbsp;<span className="keyword">const</span> [name, setName] = useState(<span className="string">"Deepak Kumar"</span>);
+                      &nbsp;&nbsp;<span className="keyword">const</span> name = <span className="string">"Deepak Kumar"</span>;
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>4</LineNumber>
                     <CodeText>
-                      &nbsp;&nbsp;<span className="keyword">const</span> [skills, setSkills] = useState([
+                      &nbsp;&nbsp;<span className="keyword">const</span> role = <span className="string">"Full Stack Developer"</span>;
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>5</LineNumber>
                     <CodeText>
-                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="string">"React"</span>, <span className="string">"JavaScript"</span>, <span className="string">"Node.js"</span>,
+                      &nbsp;&nbsp;<span className="keyword">const</span> skills = [
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>6</LineNumber>
                     <CodeText>
-                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="string">"PHP"</span>, <span className="string">"Laravel"</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="string">"React.js"</span>, <span className="string">"JavaScript"</span>,
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>7</LineNumber>
                     <CodeText>
-                      &nbsp;&nbsp;]);
+                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="string">"Node.js"</span>, <span className="string">"PHP"</span>,
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>8</LineNumber>
                     <CodeText>
-                      &nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="string">"Laravel"</span>
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
                     <LineNumber>9</LineNumber>
+                    <CodeText>
+                      &nbsp;&nbsp;];
+                    </CodeText>
+                  </CodeLine>
+
+                  <CodeLine>
+                    <LineNumber>10</LineNumber>
                     <CodeText>
                       &nbsp;&nbsp;<span className="keyword">return</span> (
                     </CodeText>
                   </CodeLine>
-                  <CodeLine>
-                    <LineNumber>10</LineNumber>
-                    <CodeText>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="function">div</span>&gt;Awesome Apps&lt;/<span className="function">div</span>&gt;
-                    </CodeText>
-                  </CodeLine>
+
                   <CodeLine>
                     <LineNumber>11</LineNumber>
+                    <CodeText>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="function">h1</span>&gt;Building Modern Web Applications 🚀&lt;/<span className="function">h1</span>&gt;
+                    </CodeText>
+                  </CodeLine>
+
+                  <CodeLine>
+                    <LineNumber>12</LineNumber>
                     <CodeText>
                       &nbsp;&nbsp;);
                     </CodeText>
                   </CodeLine>
+
                   <CodeLine>
-                    <LineNumber>12</LineNumber>
+                    <LineNumber>13</LineNumber>
                     <CodeText>
                       {'}'};
                     </CodeText>

@@ -4,7 +4,7 @@ export const Bio = {
   name: "Deepak Kumar",
   roles: ["Frontend Developer", "Backend Developer", "Full Stack Developer"],
   description:
-    "Highly motivated Frontend Developer with professional experience at Maisha Infotech, specializing in building responsive, scalable, and user-focused web applications using React.js, JavaScript, Tailwind CSS, and the MERN stack. I excel at transforming complex ideas into clean and interactive UIs, optimizing performance, and delivering seamless UX across devices. With strong problem-solving skills, a fast-learning mindset, and a dedication to writing maintainable code, I consistently contribute to innovation and efficient product development.",
+    "I'm a Full Stack Developer passionate about building modern, responsive, and user-focused web applications. With experience in React.js, JavaScript, Tailwind CSS, PHP, Laravel, and MySQL, I develop both intuitive frontend interfaces and robust backend solutions. I enjoy transforming ideas into scalable digital products, focusing on clean code, performance optimization, and seamless user experiences across all devices. Continuously learning and adapting to new technologies, I strive to create efficient, maintainable, and impactful web applications that deliver real value to users and businesses.",
   github: "https://github.com/Deepakkumar586",
   gmail: "deeparyan345@gmail.com",
   resume:
