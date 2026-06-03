@@ -159,27 +159,7 @@ const ExpandButton = styled.button`
   }
 `;
 
-const DocLink = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: 1px solid ${colors.indigoPrimary};
-  border-radius: 6px;
-  padding: 6px 14px;
-  color: ${colors.indigoLight};
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
-  text-decoration: none;
-  
-  &:hover {
-    background: rgba(79, 70, 229, 0.1);
-    transform: translateY(-2px);
-  }
-`;
+
 
 const ExperienceCard = ({ experience }) => {
   const [isExpanded, setIsExpanded] = useState(false);

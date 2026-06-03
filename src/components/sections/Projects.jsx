@@ -98,47 +98,7 @@ const TabButton = styled.button`
   }
 `;
 
-const StatsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-`;
 
-const StatCard = styled.div`
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(124, 58, 237, 0.2);
-  border-radius: 16px;
-  padding: 16px 24px;
-  text-align: center;
-  min-width: 150px;
-  backdrop-filter: blur(10px);
-  
-  @media (max-width: 768px) {
-    padding: 12px 20px;
-    min-width: 120px;
-  }
-`;
-
-const StatNumber = styled.div`
-  font-size: 32px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #7C3AED 0%, #C084FC 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
-`;
-
-const StatLabel = styled.div`
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 8px;
-`;
 
 const Grid = styled.div`
   display: grid;
@@ -193,7 +153,7 @@ const Projects = ({ openModal, setOpenModal }) => {
   // Calculate stats
   const fullStackCount = projects.filter(p => p.type?.toLowerCase() === "fullstack").length;
   const frontendCount = projects.filter(p => p.type?.toLowerCase() === "frontend").length;
-  const totalValidProjects = fullStackCount + frontendCount;
+  // const totalValidProjects = fullStackCount + frontendCount;
 
   console.log("Active tab:", activeTab);
   console.log("Filtered projects count:", filteredProjects.length);

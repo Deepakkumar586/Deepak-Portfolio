@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/constants";
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
 import HeroBgAnimation from "../HeroBgAnimation";
 import { motion } from "framer-motion";
 import {
@@ -104,26 +104,7 @@ const RightContent = styled.div`
   }
 `;
 
-const Badge = styled(motion.div)`
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background: rgba(124, 58, 237, 0.15);
-  border: 1px solid rgba(124, 58, 237, 0.3);
-  border-radius: 30px;
-  color: ${colors.purpleLight};
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 28px;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(10px);
-  
-  @media (max-width: 640px) {
-    font-size: 12px;
-    margin-bottom: 20px;
-  }
-`;
+
 
 const Title = styled(motion.h1)`
   font-weight: 800;
@@ -479,7 +460,7 @@ const Hero = () => {
                 <PrimaryButton href={Bio.resume} target="_blank">
                   View My Work →
                 </PrimaryButton>
-                <SecondaryButton href="#contact">
+                <SecondaryButton href="#Contact">
                   Let's Connect
                 </SecondaryButton>
               </ButtonGroup>
