@@ -285,7 +285,7 @@ export const projects = [
     ],
     category: "web app",
     github: "https://github.com/Deepakkumar586/DevTinder-Frontend",
-    webapp: "https://your-devtinder.vercel.app/",
+    webapp: "https://dev-tinder-frontend-two-rouge.vercel.app/login",
   },
 
 
