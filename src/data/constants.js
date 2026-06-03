@@ -340,7 +340,7 @@ export const projects = [
   },
   {
   id: 8,
-  title: "React Redux Shopping Cart",
+  title: "React Shopping Cart",
   type: "Frontend",
   description:
     "Built a modern e-commerce shopping cart application using React, Redux Toolkit, and Redux Persist. Implemented efficient state management for cart operations, including product addition, removal, quantity updates, and automatic total price calculations. Integrated Redux Persist to ensure cart data remains saved even after page refreshes or browser restarts, providing a seamless shopping experience. Designed a responsive and visually appealing user interface with Tailwind CSS, optimized for desktop, tablet, and mobile devices with a strong focus on usability and performance.",
@@ -356,8 +356,8 @@ export const projects = [
     "Responsive UI"
   ],
   category: "web app",
-  // github: "https://github.com/Deepakkumar586/Shopping-cart-/tree/main/shop-cart",
-  // webapp: "https://shopping-cart-rho-seven.vercel.app/",
+  github: "https://github.com/Deepakkumar586/React-Shopping-Cart",
+  webapp: "https://react-shopping-cart-xi-flax.vercel.app/",
 },
 
   {
