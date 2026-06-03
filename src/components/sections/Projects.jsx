@@ -1,77 +1,260 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { projects } from "../../data/constants";
 import ProjectCard from "../cards/ProjectCard";
 
 const Container = styled.div`
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content-center;
+  padding: 40px 20px;
+  background: ${({ theme }) => theme.bg || '#0A0A0A'};
   position: relative;
-  z-index: 1;
-  padding: 0 16px;
-  align-items: center;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
 `;
 
 const Wrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1100px;
-  gap: 12px;
+  z-index: 2;
 `;
 
-const Title = styled.div`
+const Header = styled.div`
+  text-align: center;
+  margin-bottom: 50px;
+`;
+
+const Title = styled.h2`
   font-size: 52px;
-  text-align: center;
-  font-weight: 600;
-  margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  font-weight: 700;
+  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #C084FC 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 16px;
+  
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
-const Desc = styled.div`
+const Subtitle = styled.p`
   font-size: 18px;
-  text-align: center;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.text_secondary || 'rgba(255, 255, 255, 0.7)'};
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
-const CardContainer = styled.div`
+const TabsContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 28px;
+  gap: 16px;
+  margin-bottom: 48px;
   flex-wrap: wrap;
 `;
 
-const Projects = ({ openModal, setOpenModal }) => {
+const TabButton = styled.button`
+  padding: 12px 32px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  background: ${({ active, theme }) => 
+    active ? 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)' : 'rgba(255, 255, 255, 0.05)'};
+  color: ${({ active }) => active ? '#fff' : 'rgba(255, 255, 255, 0.7)'};
+  border: ${({ active }) => 
+    active ? 'none' : '1px solid rgba(124, 58, 237, 0.3)'};
+  
+  &:hover {
+    background: ${({ active }) => 
+      active ? 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)' : 'rgba(124, 58, 237, 0.15)'};
+    color: #fff;
+    transform: translateY(-2px);
+    border-color: ${({ active }) => 
+      active ? 'transparent' : 'rgba(124, 58, 237, 0.6)'};
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+`;
 
-  const personalProjects = projects.filter(
-    (p) => p.type === "personal"
-  );
+const StatsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+`;
+
+const StatCard = styled.div`
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 16px;
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 150px;
+  backdrop-filter: blur(10px);
+  
+  @media (max-width: 768px) {
+    padding: 12px 20px;
+    min-width: 120px;
+  }
+`;
+
+const StatNumber = styled.div`
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7C3AED 0%, #C084FC 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+const StatLabel = styled.div`
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+`;
+
+const EmptyState = styled.div`
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  
+  h3 {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 12px;
+  }
+  
+  p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+  }
+`;
+
+const Projects = ({ openModal, setOpenModal }) => {
+  const [activeTab, setActiveTab] = useState("FullStack");
+
+  // Debug logging - check what projects are being imported
+  console.log("=== PROJECTS DEBUG ===");
+  console.log("Projects data:", projects);
+  console.log("Projects count:", projects.length);
+  console.log("Project types:", projects.map(p => ({ title: p.title, type: p.type })));
+
+  // Filter projects based on active tab
+  const filteredProjects = projects.filter((p) => {
+    if (!p.type) {
+      console.log(`Project "${p.title}" has no type!`);
+      return false;
+    }
+    const matches = p.type.toLowerCase() === activeTab.toLowerCase();
+    console.log(`Project "${p.title}" type: ${p.type}, matches ${activeTab}: ${matches}`);
+    return matches;
+  });
+
+  // Calculate stats
+  const fullStackCount = projects.filter(p => p.type?.toLowerCase() === "fullstack").length;
+  const frontendCount = projects.filter(p => p.type?.toLowerCase() === "frontend").length;
+  const totalValidProjects = fullStackCount + frontendCount;
+
+  console.log("Active tab:", activeTab);
+  console.log("Filtered projects count:", filteredProjects.length);
+  console.log("Filtered projects:", filteredProjects.map(p => p.title));
+
+  const tabs = [
+    { id: "FullStack", label: "Full Stack", icon: "", count: fullStackCount },
+    { id: "Frontend", label: "Frontend", icon: "", count: frontendCount }
+  ];
 
   return (
     <Container id="Projects">
       <Wrapper>
-        <Title> Projects</Title>
-        <Desc style={{ marginBottom: "40px" }}>
-          Here are some of my  projects that showcase my skills and creativity.
-        </Desc>
+        <Header>
+          <Title>Featured Projects</Title>
+          <Subtitle>
+            A showcase of my recent work including full-stack applications 
+            and frontend projects built with modern technologies
+          </Subtitle>
+        </Header>
 
-        <CardContainer>
-          {personalProjects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              openModal={openModal}
-              setOpenModal={setOpenModal}
-            />
+       
+
+        <TabsContainer>
+          {tabs.map((tab) => (
+            <TabButton
+              key={tab.id}
+              active={activeTab === tab.id}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              <span style={{ marginRight: '8px' }}>{tab.icon}</span>
+              {tab.label}
+              <span style={{ 
+                marginLeft: '8px', 
+                background: activeTab === tab.id ? 'rgba(255,255,255,0.2)' : 'rgba(124,58,237,0.2)',
+                padding: '2px 8px',
+                borderRadius: '20px',
+                fontSize: '12px'
+              }}>
+                {tab.count}
+              </span>
+            </TabButton>
           ))}
-        </CardContainer>
+        </TabsContainer>
+
+        {filteredProjects.length > 0 ? (
+          <Grid>
+            {filteredProjects.map((project, index) => (
+              <ProjectCard 
+                key={project.id || index} 
+                project={project} 
+                setOpenModal={setOpenModal}
+              />
+            ))}
+          </Grid>
+        ) : (
+          <EmptyState>
+            <h3>No projects found</h3>
+            <p>Try switching tabs or check back soon for more projects!</p>
+          </EmptyState>
+        )}
       </Wrapper>
     </Container>
   );

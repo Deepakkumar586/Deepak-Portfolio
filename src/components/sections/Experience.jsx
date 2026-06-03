@@ -41,10 +41,12 @@ const Title = styled.div`
 `;
 
 const Desc = styled.div`
-  font-size: 18px;
-  text-align: center;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+     font-size: 18px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    margin-bottom: 50px;
+    line-height: 1.6;
   @media (max-width: 768px) {
     font-size: 16px;
   }
@@ -60,8 +62,8 @@ const Experience = () => {
             marginBottom: "40px",
           }}
         >
-Gained valuable experience as a software engineer, contributing to a variety of projects and applying technical expertise to solve complex challenges.        
-</Desc>
+          Gained valuable experience as a software engineer, contributing to a variety of projects and applying technical expertise to solve complex challenges.
+        </Desc>
 
         <VerticalTimeline>
           {experiences.map((experience, index) => (

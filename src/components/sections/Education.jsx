@@ -41,10 +41,12 @@ const Title = styled.div`
 `;
 
 const Desc = styled.div`
-  font-size: 18px;
-  text-align: center;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+     font-size: 18px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    margin-bottom: 50px;
+    line-height: 1.6;
   @media (max-width: 768px) {
     font-size: 16px;
   }
@@ -60,8 +62,7 @@ const Education = () => {
             marginBottom: "40px",
           }}
         >
-          My education has been a journey of self-discovery and growth. My
-          educational details are as follows.
+        My educational background has provided me with strong analytical skills and a solid foundation in software development, helping me grow as a technology professional.
         </Desc>
 
         <VerticalTimeline
