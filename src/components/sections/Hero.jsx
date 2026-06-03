@@ -465,7 +465,6 @@ const Hero = () => {
                 </SecondaryButton>
               </ButtonGroup>
             </LeftContent>
-
             <RightContent>
               <CodeCard
                 initial={{ opacity: 0, x: 20 }}
